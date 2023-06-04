@@ -1,4 +1,3 @@
-import { NFT as NFTType } from "@thirdweb-dev/sdk";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import {abi} from "../../components/abi/erc721";
@@ -18,7 +17,8 @@ import toast, { Toaster } from "react-hot-toast";
 import toastStyle from "../../util/toastConfig";
 
 type Props = {
-  nft: NFTType;
+  nft: any;
+  collection: string;
 };
 
 type AuctionFormData = {
@@ -41,7 +41,7 @@ type DirectFormData = {
 export default function SaleInfo({ nft, collection }: Props) {
   const router = useRouter();
   var NFT_COLLECTION_ADDRESS = collection;
-  const IDtoken = Number(nft.id.tokenId); 
+  const IDtoken = nft.id.tokenId; 
 
   // Connect to marketplace contract
   const { contract: marketplace } = useContract(

@@ -10,7 +10,14 @@ import { MARKETPLACE_ADDRESS } from "../../const/contractAddresses";
 import Skeleton from "../Skeleton/Skeleton";
 import React, { useState, useRef, useEffect } from "react";
 
-export const ListingsCard = ({ nft, i, collection }) => {
+type Props = {
+    collection: string;
+    nft: any;
+    i: any;
+  };
+  
+
+export const ListingsCard = ({ nft, i, collection }: Props) => {
     var NFT_COLLECTION_ADDRESS = collection;
     const IDtoken = Number(nft.id?.tokenId) || nft.metadata.id; 
     const linkStyle = {

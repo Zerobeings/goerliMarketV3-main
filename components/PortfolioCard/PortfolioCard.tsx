@@ -10,7 +10,13 @@ import { MARKETPLACE_ADDRESS } from "../../const/contractAddresses";
 import Skeleton from "../Skeleton/Skeleton";
 import React, { useState, useRef, useEffect } from "react";
 
-export const PortfolioCard = ({ nft, i , collection}) => {
+type Props = {
+    collection: any;
+    nft: any;
+    i: any;
+  };
+
+export const PortfolioCard = ({ nft, i , collection}: Props) => {
     const NFT_COLLECTION_ADDRESS = collection;
     const IDtoken = Number(nft.id.tokenId); 
     const linkStyle = {
@@ -87,9 +93,8 @@ export const PortfolioCard = ({ nft, i , collection}) => {
                   src="/icon-darkbg@512.png"
                   width={20}
                   height={20}
-                  alt="rarible"
-                  target="_blank"
-                  style={styles.linkStyle}
+                  alt="looksrare"              
+                  style={linkStyle}
                     />
                 
                 </Link>
@@ -98,9 +103,8 @@ export const PortfolioCard = ({ nft, i , collection}) => {
                   src="/opensea.png"
                   width={20}
                   height={20}
-                  alt="rarible"
-                  target="_blank"
-                  style={styles.linkStyle}
+                  alt="opensea"               
+                  style={linkStyle}
                     />
                 
                 </Link>
@@ -109,21 +113,20 @@ export const PortfolioCard = ({ nft, i , collection}) => {
                   src="/rarible.png"
                   width={20}
                   height={20}
-                  alt="rarible"
-                  target="_blank"
-                  style={styles.linkStyle}
+                  alt="rarible"                
+                  style={linkStyle}
                     />
                 </Link>
           </a>
           {nft.metadata.file &&
           <a className={styles.fileLinks}>
             {(nft.metadata.file != null) && 
-                <a href={nft.metadata.file} target="_blank" className={styles.noDecoration} rel="noopener noreferrer">
+                <a href={nft.metadata.file}  className={styles.noDecoration} rel="noopener noreferrer">
                     <Image className={styles.imgFileLicense} src="/filelocation.png" height={30} width={30} alt=""/>
                 </a>
                 }
                 {(nft.metadata.file != null) && 
-                <a href={nft.metadata.license_url} target="_blank" className={styles.noDecoration} rel="noopener noreferrer">
+                <a href={nft.metadata.license_url}  className={styles.noDecoration} rel="noopener noreferrer">
                     <Image className={styles.imgFileLicense} src="/NFTlicense.png" height={30} width={30} alt=""/>
                 </a>
                 }

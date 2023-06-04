@@ -7,9 +7,10 @@ import styles from "../../styles/Buy.module.css";
 
 type Props = {
   isLoading: boolean;
-  data: NFTType[] | undefined;
+  data: any[] | undefined;
   overrideOnclickBehavior?: (nft: NFTType) => void;
   emptyText?: string;
+  collection: string;
 };
 
 export default function NFTGrid({
@@ -30,19 +31,19 @@ export default function NFTGrid({
         data.map((nft) =>
           !overrideOnclickBehavior ? (
             <Link
-              href={`/token/${nft.contract.address}/${Number(nft.id.tokenId)}`}
-              key={Number(nft.id.tokenId)+1+nft.contract.address}
+              href={`/token/${nft?.contract?.address}/${Number(nft?.id?.tokenId)}`}
+              key={Number(nft?.id?.tokenId)+1+nft?.contract?.address}
               className={styles.nftContainer}
             >
-              <NFT nft={nft} />
+              <NFT nft={nft} collection={nft?.contract?.address}/>
             </Link>
           ) : (
             <div
-              key={Number(nft.id.tokenId)}
+              key={Number(nft?.id?.tokenId)}
               className={styles.nftContainer}
               onClick={() => overrideOnclickBehavior(nft)}
             >
-              <NFT nft={nft} collection={nft.contract.address} />
+              <NFT nft={nft} collection={nft?.contract?.address} />
             </div>
           )
         )

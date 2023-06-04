@@ -1,7 +1,7 @@
-import { useContract, useNFT } from "@thirdweb-dev/react";
+import { useContract } from "@thirdweb-dev/react";
 import { DirectListingV3, EnglishAuction } from "@thirdweb-dev/sdk";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Dispatch } from "react";
 import styles from "../../styles/Buy.module.css";
 import NFT from "../NFT/NFT";
 import { ListingsCard } from '../ListingsCard/ListingsCard';
@@ -10,6 +10,8 @@ import {ALCH_NET} from '../../const/contractAddresses';
 
 type Props = {
   listing: DirectListingV3 | EnglishAuction;
+  nft: any;
+  collection: any
 };
 
 /**
@@ -18,7 +20,7 @@ type Props = {
 export default function ListingWrapper({ listing }: Props) {
   const NFT_COLLECTION_ADDRESS = listing.assetContractAddress;
   const [loaded, isLoaded] = useState(false);
-  const [nft, setNft] = useState<any[]>([]);
+  const [nft, setNft] = useState<any>([]);
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   useEffect(() => {
@@ -48,13 +50,18 @@ export default function ListingWrapper({ listing }: Props) {
 
   if (!loaded) return null;
 
+  const tokenID = nft?.id?.tokenId ?? "undefined";
+
   return (
-    <Link
-      href={`/token/${NFT_COLLECTION_ADDRESS}/${nft.id.tokenId}`}
-      key={nft.id.tokenId}
-      className={styles.nftContainer}
-    >
-      <NFT nft={nft} />
-    </Link>
+  
+      <Link
+        href={`/token/${NFT_COLLECTION_ADDRESS}/${tokenID}`}
+        key={tokenID}
+        className={styles.nftContainer}
+      >
+        <NFT nft={nft} collection={nft?.contract?.address}/>
+      </Link>
+
+  
   );
 }

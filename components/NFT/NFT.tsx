@@ -4,7 +4,6 @@ import {
   useValidDirectListings,
   useValidEnglishAuctions,
 } from "@thirdweb-dev/react";
-import { NFT } from "@thirdweb-dev/sdk";
 import React from "react";
 import {
   MARKETPLACE_ADDRESS,
@@ -13,13 +12,13 @@ import Skeleton from "../Skeleton/Skeleton";
 import styles from "./NFT.module.css";
 
 type Props = {
-  nft: NFT;
+  nft: any;
   collection: string;
 };
 
 export default function NFTComponent({ nft, collection }: Props) {
   const NFT_COLLECTION_ADDRESS = collection;
-  const IDtoken = Number(nft.id.tokenId) || nft.metadata.id; 
+  const IDtoken = Number(nft?.id?.tokenId) || nft?.metadata?.id; 
   const { contract: marketplace, isLoading: loadingContract } = useContract(
     MARKETPLACE_ADDRESS,
     "marketplace-v3"

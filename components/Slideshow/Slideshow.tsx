@@ -42,6 +42,7 @@ export function Slideshow(){
     var plusSlides4BtnPlus = document.querySelector("#plusSlides4Plus");
     // Next/previous controls
 
+    if(plusSlides1Btn && plusSlides1BtnPlus && plusSlides2Btn && plusSlides2BtnPlus && plusSlides3Btn && plusSlides3BtnPlus && plusSlides4Btn && plusSlides4BtnPlus){
     plusSlides1Btn.addEventListener("click", async() => {
         let n = -1;
         showSlides1(slideIndex += n);
@@ -81,6 +82,7 @@ export function Slideshow(){
         let n = 1;
         showSlides4(slideIndex += n);
     });
+  }
     
     // Thumbnail image controls
     function currentSlide1(n) {

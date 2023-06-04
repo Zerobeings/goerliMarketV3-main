@@ -13,7 +13,12 @@ import React, { useState, useRef, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import toastStyle from "../../util/toastConfig";
 
-export default function ListingsCloseBid({ nft, index}){
+type Props = {
+    nft: any;
+    index: any;
+  };
+
+export default function ListingsCloseBid({ nft, index}: Props){
     var NFT_COLLECTION_ADDRESS = nft.asset.assetContractAddress;
 
 
