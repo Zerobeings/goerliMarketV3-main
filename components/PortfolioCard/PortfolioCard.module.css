@@ -1,0 +1,159 @@
+  
+  .nftContainer {
+    width: 20%;
+    margin: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    backface-visibility: hidden;
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translate3d(0px, 0px, 0px);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    max-height: 420px;
+    transition: all 0.25s ease-in-out;
+  }
+  
+  .nftContainer:hover {
+    cursor: pointer;
+    transform: translate3d(0px, -4px, 0px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    padding: 8px;
+    font-size: 3rem;
+    margin-bottom: 8px;
+  }
+  
+  /* Responsive */
+  
+  @media (min-width: 1200px) {
+  }
+  
+  @media (min-width: 760px) and (max-width: 1200px) {
+    .nftContainer {
+      width: 20%;
+    }
+  }
+  
+  @media (min-width: 600px) and (max-width: 760px) {
+    .nftContainer {
+      width: 20%;
+    }
+  }
+  
+  /* Less than 600 */
+  @media (max-width: 600px) {
+    .nftContainer {
+      width: 20%;
+    }
+    .nftGridContainer {
+      display: flex;
+      flex-direction: row;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 1%;
+      width: 100%;
+    }
+  }
+
+  .nftImage {
+    /* Override default NFT renderer width */
+    max-height: 200px !important;
+    width: 100% !important;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    object-fit: cover;
+  }
+  
+  .nftTokenId {
+    font-size: 12px;
+    margin: 0px;
+    margin-top: 12px;
+  }
+  
+  .nftName {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    color: #fff;
+    font-family: inherit;
+    vertical-align: inherit;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+    margin: 0px;
+    margin-bottom: 12px;
+    margin-top: 4px;
+  }
+  
+  .priceContainer {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    min-height: 52px;
+  }
+  
+  .nftPriceContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  
+  .nftPriceLabel {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .nftPriceValue {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100%;
+    font-family: inherit;
+    vertical-align: inherit;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    color: #fff;
+  }
+
+  .fileLinks{
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .imgFileLicense{
+    margin-right:10px;
+  }
+
+  .noDecoration{
+    text-decoration: none;
+  }

@@ -1,0 +1,191 @@
+
+  /* Slideshow container */
+  .slideshowContainer {
+    width: 1204px;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  .imageStyle{
+    border-radius: 20px;
+    margin: 20px;
+    display: inline;
+  }
+
+  .imageStyle:hover{
+    cursor: pointer;
+    transform: translate3d(0px, -4px, 0px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 41%;
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 15px;
+    user-select: none;
+    background-color: black;
+    border: 2px solid white;
+    z-index: 10;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 2%;
+  }
+
+  .prev {
+    left: 2%;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 3s;
+  }
+
+  .choiceTitle{
+    color: rgb(65, 188, 225);
+    float: left;
+  }
+  
+  @media screen and (min-width: 1500px) and (max-width: 100000px) {
+    .slide2 {
+      content-visibility: hidden;
+    }
+    .slide3 {
+      content-visibility: hidden;
+    }
+    .slide4 {
+      content-visibility: hidden;
+    }
+    .marketMobile {
+      content-visibility: hidden;
+    }
+    .imgMobile {
+      display: none;
+    }
+    .editorChoice{
+      max-width: 1375px;
+      position: relative;
+      margin: auto;
+      padding-left: 20px;
+    }
+  }
+  
+  @media screen and (max-width: 1500px) {
+      .slide1 {
+      display: none;
+    }
+    .imgMobile {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) and (max-width: 1500px) {
+    .slide2 {
+      content-visibility: visible;
+    }
+    .slide3 {
+      display: none;
+    }
+    .slide4 {
+      display: none;
+    }
+    .slideshowContainer {
+      max-width: 930px;
+    }
+    .editorChoice{
+      max-width: 1030px;
+      position: relative;
+      margin: auto;
+      padding-left: 20px;
+    }
+    .marketMobile {
+      display: none;
+    }
+    .imgMobile {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 910px) and (max-width: 1200px) {
+    .slide2 {
+      display: none;
+    }
+    .slide3 {
+      content-visibility: visible;
+    }
+    .slide4 {
+      display: none;
+    }
+    .slideshowContainer {
+      max-width: 685px;
+    }
+    .editorChoice{
+      max-width: 685px;
+      position: relative;
+      margin: auto;
+      padding-left: 20px;
+    }
+    .marketMobile {
+      display: none;
+    }
+    .imgMobile {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 900px) {
+    .slide2 {
+      display: none;
+    }
+    .slide3 {
+      display: none;
+    }
+    .slide4 {
+      content-visibility: visible;
+    }
+    .slideshowContainer {
+      max-width: 340px;
+    }
+    .editorChoice{
+      max-width: 340px;
+      position: relative;
+      margin: auto;
+    }
+    .imgDesktop {
+      display: none;
+    }
+    .imgMobile {
+      display: flex;
+    }
+    .columnMarket1{
+      width: 100%;
+    }
+    .columnMarket2{
+      width: 100%;
+    }
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }

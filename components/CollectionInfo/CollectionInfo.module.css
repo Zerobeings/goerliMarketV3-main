@@ -1,0 +1,43 @@
+
+.gridCollectionInfo {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .gridCollectionInfo > div {
+    padding: 5px 0;
+    font-size: 14px;
+    max-width: 200px;
+    overflow-wrap: break-word;
+  }
+  
+  .collectionInfoLabels{
+    color: rgb(65, 188, 225) ;
+    text-align: right;
+  }
+  
+  .textLeft {
+    text-align: left;
+  }
+
+  .collectionDescription{
+    text-align: left; font: 12px;
+  }
+  
+.collectionInfoImg{
+    width: 200px; border-radius: 10px; margin-bottom: 10px;
+  }
+  
+  .collectionInfoIcons{
+    display: flex; margin: 10px; justify-content: space-evenly;
+  }
+  
+  .width18px{
+    width:18px;
+  }
+
+  .socialLinksInfo{
+    color: white;text-decoration: none; padding-left: 5px;
+  }

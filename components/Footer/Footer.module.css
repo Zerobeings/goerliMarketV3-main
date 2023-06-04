@@ -1,0 +1,99 @@
+
+.logoFooterDiv{
+width: 325px; margin-top: 5px;
+}
+
+.font16{
+font-size: 16px;
+}
+
+.font12{
+font-size: 12px;
+}
+
+.link{
+    color:rgb(255, 255, 0);
+    text-decoration:none !important;
+  }
+
+.floatRight{
+float: right;
+}
+
+.floatLeft{
+float: left !important;
+}
+
+.greyColor{
+color:#818181;
+}
+
+.marginLeft20px{
+margin-left: 20px;
+}
+
+.marginTop6px{
+margin-top: 6px;
+}
+
+.copyright{
+width: 1375px;
+margin: auto;
+}
+
+/* Marketplace footer */
+.gridFooter {
+display: grid;
+grid-template-columns: auto auto auto auto;
+gap: 10px;
+padding: 10px;
+border-top: 1px solid #444;
+border-bottom:1px solid #444;
+max-width: 1600px;
+margin: auto;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+.gridFooter > div {
+padding: 5px 0;
+font-size: 14px;
+margin-left: auto;
+margin-right: auto;
+text-align: left;
+}
+
+.footMarket{
+text-align: left;
+color: rgb(65, 188, 225) ;
+}
+
+@media screen and (max-width: 1000px) {
+.gridFooter {
+display: grid;
+grid-template-columns: auto; 
+gap: 10px;
+padding: 10px;
+border-top: 1px solid #444;
+border-bottom:1px solid #444;
+width:375px;
+margin-top: 100px;
+text-align: center;
+}
+
+.gridFooter > div {
+  padding: 5px 0;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 375px;
+}
+
+.footMarket{
+text-align: center;
+}
+
+
+}
+  
