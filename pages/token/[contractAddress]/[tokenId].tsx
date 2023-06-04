@@ -42,6 +42,8 @@ interface NFT {
     attributes: Record<string, any>;
     centerpoint: string;
     contentstring: string | null;
+    image: string;
+    animation_url: string;
   };
   contract?: {
     address: string;
@@ -79,7 +81,7 @@ export default function TokenPage() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [display, setDisplay] = useState<boolean>(false);
   const [url, setURL] = useState<boolean>(false);
-  const [urlImage, setUrlImage] = useState<string>();
+  const [urlImage, setUrlImage] = useState<string>("");
 
   // Connect to marketplace smart contract
   const { contract: marketplace, isLoading: loadingContract } = useContract(
@@ -112,11 +114,11 @@ export default function TokenPage() {
         }).then((data) => data.json()).then(nft => setNft(nft));
       } catch(e) {}
 
-      try{
-        const Image = nft.media[0].gateway;
-        setUrlImage(Image);
+
+        // const Image = nft.media[0].gateway;
+        // setUrlImage(Image);
         setURL(true);
-      }catch(e) {}
+
        
     })();
   },[NFT_COLLECTION_ADDRESS, API_KEY, router.query.tokenId, marketplace]);
@@ -340,12 +342,12 @@ export default function TokenPage() {
         }
         <div className={styles.container}>
           <div className={styles.metadataContainer}>
-            {urlImage &&
-            <MediaRenderer
-              src={urlImage}
+            {nft &&
+              <ThirdwebNftMedia
+              metadata={nft.metadata}
               className={styles.image}
-              controls={true}
-            />}
+              />
+           }
             {nft &&
             
             <div className={styles.descriptionContainer}>
