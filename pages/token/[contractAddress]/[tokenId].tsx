@@ -50,6 +50,12 @@ interface NFT {
     gateway: string;
   }[];
   description: string;
+  contractMetadata?:{
+    name: string;
+    image: string;
+  }[];
+  title: string;
+  image: string;
 }
 
 export default function TokenPage() {
@@ -283,8 +289,6 @@ export default function TokenPage() {
 
   return (
     <>
-    {nft && 
-    <>
       <Toaster position="bottom-center" reverseOrder={false} />
       <Container maxWidth="lg">
         <Navbar/>
@@ -327,28 +331,31 @@ export default function TokenPage() {
               className={styles.image}
               controls={true}
             />}
+            {nft &&
+            
             <div className={styles.descriptionContainer}>
               <h3 className={styles.descriptionTitle}>Description</h3>
               <p className={styles.description}>{nft.description}</p>
-
               <h3 className={styles.descriptionTitle}>Traits</h3>
 
               <div className={styles.traitsContainer}>
                 {nft.metadata?.attributes?.map((trait:any, i:number) => (
-                    <div className={styles.traitContainer} obj={trait} key={i}>
+                    <div className={styles.traitContainer} key={i}>
                       <p className={styles.traitName}>{trait.trait_type}</p>
                       <p className={styles.traitValue}>{trait.value?.toString() || ""} </p>
                     </div>
                   ))}
               </div>
-            {offers != "" ? (
+          
+           
+            {offers !== undefined ? (
               <>
                 <h3 className={styles.descriptionTitle}>Offers</h3>
                 
                 <div className={styles.traitsContainer}>
                   {offers?.map((offer, index) => (
                     <div
-                      key={event.transaction.transactionHash}
+                      key={index}
                       className={styles.eventsContainer}
                     >
                       <div className={styles.eventContainer}>
@@ -392,9 +399,9 @@ export default function TokenPage() {
                 <h3 className={styles.descriptionTitle}>Bids</h3>
                 
                 <div className={styles.traitsContainer}>
-                  {bids?.map((bid, index) => (
+                  {bids?.map((bid:any, index:number) => (
                     <div
-                      key={event.transaction.transactionHash}
+                      key={index}
                       className={styles.eventsContainer}
                     >
                       <div className={styles.eventContainer}>
@@ -444,10 +451,11 @@ export default function TokenPage() {
             
               
             </div>
+          }
           </div>
 
           <div className={styles.listingContainer}>
-            {nft.contractMetadata && (
+            {nft && nft.contractMetadata && (
               <div className={styles.contractMetadataContainer}>
                 {nft.contractMetadata.image && <MediaRenderer
                   src={nft.contractMetadata.image}
@@ -672,7 +680,5 @@ export default function TokenPage() {
         </div>
       </Container>
     </>
-  }
-</>
   );
 }
