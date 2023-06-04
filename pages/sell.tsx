@@ -16,7 +16,7 @@ export const Sell = () => {
   // Load all of the NFTs from the NFT Collection
   const address = useAddress();
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any[]>([]);
   const [selectedNft, setSelectedNft] = useState<NFTType>();
   const [isLoading, setIsLoading] = useState<boolean>();
 

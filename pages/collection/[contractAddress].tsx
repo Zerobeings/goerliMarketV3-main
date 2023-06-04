@@ -24,7 +24,7 @@ export default function CollectionPage()  {
     const router = useRouter();
     const address = useAddress();
     const collection = router.query.contractAddress as string
-    const [NFTs, setNFTs] = useState([]);
+    const [NFTs, setNFTs] = useState<any[]>([]);
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   useEffect(() => {

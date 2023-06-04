@@ -22,7 +22,7 @@ import {Searchbar} from '../components/Searchbar/Searchbar';
 const Home: NextPage = () => {
   const address = useAddress();
   const [collection, setCollectionAddress] = useState("");
-  const [NFTs, setNFTs] = useState([]);
+  const [NFTs, setNFTs] = useState<any[]>([])
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   useEffect(() => {

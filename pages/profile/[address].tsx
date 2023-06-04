@@ -33,7 +33,7 @@ export default function ProfilePage() {
   const router = useRouter();
   const address = useAddress();
   const [tab, setTab] = useState<"nfts" | "listings" | "auctions" | "sell" | "close">("nfts");
-  const [NFTs, setNFTs] = useState([]);
+  const [NFTs, setNFTs] = useState<any[]>([])
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   useEffect(() => {

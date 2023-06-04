@@ -18,8 +18,8 @@ export const Close = () => {
   // Load all of the NFTs from the NFT Collection
   const address = useAddress();
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-  const [seller, setSeller] = useState([]);
-  const [bid, setBid] = useState([]);
+  const [seller, setSeller] = useState<any[]>([])
+  const [bid, setBid] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState<boolean>();
 
    // Connect to marketplace smart contract

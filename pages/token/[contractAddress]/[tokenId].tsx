@@ -40,7 +40,7 @@ export default function TokenPage() {
   const router = useRouter();
   const address = useAddress();
   const [bidValue, setBidValue] = useState<string>();
-  const [nft, setNft] = useState([]);
+  const [nft, setNft] = useState<any[]>([])
   const [owner, setOwner] = useState([""]);
   const [ownerLoaded, isOwnerLoaded] = useState(false);
   const [center, setCenter] = useState("");
@@ -48,8 +48,8 @@ export default function TokenPage() {
   const [image, setImage] = useState("");
   const [content, setContent] = useState("");
   const [selectedMarker, setSelectedMarker] = useState<Coordinates | null>(location);
-  const [offers, getOffers] = useState([]);
-  const [bids, getBids] = useState([]);
+  const [offers, getOffers] = useState<any[]>([])
+  const [bids, getBids] = useState<any[]>([])
 
   // Connect to marketplace smart contract
   const { contract: marketplace, isLoading: loadingContract } = useContract(

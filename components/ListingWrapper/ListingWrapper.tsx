@@ -18,7 +18,7 @@ type Props = {
 export default function ListingWrapper({ listing }: Props) {
   const NFT_COLLECTION_ADDRESS = listing.assetContractAddress;
   const [loaded, isLoaded] = useState(false);
-  const [nft, setNft] = useState([]);
+  const [nft, setNft] = useState<any[]>([]);
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   useEffect(() => {
