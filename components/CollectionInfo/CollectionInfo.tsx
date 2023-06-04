@@ -4,7 +4,7 @@ import Image from "next/image";
 import FontAwesomeIcon from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
-  Nfts: Array<string | number>;
+  Nfts: Array<any>;
 };
 
 export const CollectionInfo = ({Nfts} : Props) => {
