@@ -10,7 +10,7 @@ import {NAV_LOGO, PROFILE_LOGO} from '../../const/contractAddresses';
  * Rendered in _app.tsx file above the page content.
  */
 export function Searchbar() {
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState<string>("");
   const address = useAddress();
   
   return (

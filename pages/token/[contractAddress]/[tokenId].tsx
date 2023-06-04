@@ -41,12 +41,12 @@ export default function TokenPage() {
   const address = useAddress();
   const [bidValue, setBidValue] = useState<string>();
   const [nft, setNft] = useState<any[]>([])
-  const [owner, setOwner] = useState([""]);
+  const [owner, setOwner] = useState<any[]>([""]);
   const [ownerLoaded, isOwnerLoaded] = useState(false);
-  const [center, setCenter] = useState("");
-  const [location, setLocation] = useState("");
-  const [image, setImage] = useState("");
-  const [content, setContent] = useState("");
+  const [center, setCenter] = useState<string>("");
+  const [location, setLocation] = useState<string>("");
+  const [image, setImage] = useState<string>("");
+  const [content, setContent] = useState<string>("");
   const [selectedMarker, setSelectedMarker] = useState<Coordinates | null>(location);
   const [offers, getOffers] = useState<any[]>([])
   const [bids, getBids] = useState<any[]>([])

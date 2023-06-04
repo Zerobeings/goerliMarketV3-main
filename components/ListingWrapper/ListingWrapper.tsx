@@ -11,7 +11,8 @@ import {ALCH_NET} from '../../const/contractAddresses';
 type Props = {
   listing: DirectListingV3 | EnglishAuction;
   nft: any;
-  collection: any
+  collection: string;
+  key: string;
 };
 
 /**

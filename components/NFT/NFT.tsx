@@ -13,7 +13,9 @@ import styles from "./NFT.module.css";
 
 type Props = {
   nft: any;
-  collection: string;
+  collection: any;
+  listing: DirectListingV3 | EnglishAuction;
+  key: string;
 };
 
 export default function NFTComponent({ nft, collection }: Props) {

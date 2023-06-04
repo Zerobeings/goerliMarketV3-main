@@ -13,10 +13,9 @@ import React, { useState, useRef, useEffect } from "react";
 type Props = {
     collection: string;
     nft: any;
-    i: any;
   };
 
-export const NFTCard = ({ nft, i, collection }: Props) => {
+export const NFTCard = ({ nft, collection }: Props) => {
     var NFT_COLLECTION_ADDRESS = collection;
     const IDtoken = Number(nft.id.tokenId); 
     const linkStyle = {

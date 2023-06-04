@@ -13,11 +13,10 @@ import React, { useState, useRef, useEffect } from "react";
 type Props = {
     collection: string;
     nft: any;
-    i: any;
   };
   
 
-export const ListingsCard = ({ nft, i, collection }: Props) => {
+export const ListingsCard = ({ nft, collection }: Props) => {
     var NFT_COLLECTION_ADDRESS = collection;
     const IDtoken = Number(nft.id?.tokenId) || nft.metadata.id; 
     const linkStyle = {

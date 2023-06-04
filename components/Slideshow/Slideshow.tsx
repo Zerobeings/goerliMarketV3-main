@@ -22,12 +22,8 @@ import {
   SLIDE_9_IMG,
 } from '../../const/contractAddresses';
 
-type Props = {
-  n: any;
-};
 
-
-export function Slideshow({n}: Props){ 
+export function Slideshow(){ 
   
 
   useEffect(() => {

@@ -17,9 +17,11 @@ import toastStyle from "../util/toastConfig";
 type Props = {
   nft: any;
   collection: string;
+  key: any;
+  index: any;
 };
 
-export const Close = ({ nft, collection }: Props) => {
+export const Close = ({ nft, collection, index }: Props) => {
   // Load all of the NFTs from the NFT Collection
   const address = useAddress();
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
@@ -107,7 +109,7 @@ export const Close = ({ nft, collection }: Props) => {
           <h3>My Winning Bids</h3>
             {!!bid.length &&
               bid.map((nft, i) => {
-                return <ListingsCloseBid nft={nft} key={nft.asset.id+nft.contractAddress}></ListingsCloseBid>;
+                return <ListingsCloseBid nft={nft} key={nft.asset.id+nft.contractAddress} index={i}></ListingsCloseBid>;
               })}
             </>
           }
@@ -122,7 +124,7 @@ export const Close = ({ nft, collection }: Props) => {
              <h3>My Auctions</h3>
               {!!seller.length &&
                 seller.map((nft, i) => {
-                  return <ListingsClose nft={nft} key={i+nft.asset.id+nft.contractAddress}></ListingsClose>;
+                  return <ListingsClose nft={nft} key={i+nft.asset.id+nft.contractAddress} index={i}></ListingsClose>;
                 })}
               </>
             }

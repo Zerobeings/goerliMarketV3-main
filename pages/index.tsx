@@ -19,19 +19,13 @@ import {Searchbar} from '../components/Searchbar/Searchbar';
  * Landing page with a simple gradient background and a hero asset.
  * Free to customize as you see fit.  
  */
-type Props = {
-  nft: any;
-  collection: string;
-  key: any;
-};
 
-
-
-const Home: NextPage = ({ nft, collection }: Props) => {
+const Home: NextPage = () => {
   const address = useAddress();
-  const [collection, setCollectionAddress] = useState("");
+  const [collection, setCollectionAddress] = useState<string>("");
   const [NFTs, setNFTs] = useState<any[]>([])
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+  const [search, setSearch] = useState<string>("");
 
   useEffect(() => {
     (async () => {
