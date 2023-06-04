@@ -44,6 +44,9 @@ interface NFT {
     contentstring: string | null;
     image: string;
     animation_url: string;
+    name: ZodNullable<ZodOptional<ZodUnion<[ZodString, ZodNumber]>>>;
+    description: ZodNullable<ZodOptional<ZodNullable<ZodString>>>;
+    animation_url: ZodOptional<ZodOptional<ZodNullable<ZodString>>>;
   };
   contract?: {
     address: string;
@@ -81,7 +84,7 @@ export default function TokenPage() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [display, setDisplay] = useState<boolean>(false);
   const [url, setURL] = useState<boolean>(false);
-  const [urlImage, setUrlImage] = useState<string>("");
+ // const [urlImage, setUrlImage] = useState<string>("");
 
   // Connect to marketplace smart contract
   const { contract: marketplace, isLoading: loadingContract } = useContract(
@@ -114,11 +117,7 @@ export default function TokenPage() {
         }).then((data) => data.json()).then(nft => setNft(nft));
       } catch(e) {}
 
-
-        // const Image = nft.media[0].gateway;
-        // setUrlImage(Image);
         setURL(true);
-
        
     })();
   },[NFT_COLLECTION_ADDRESS, API_KEY, router.query.tokenId, marketplace]);
@@ -298,12 +297,6 @@ export default function TokenPage() {
   }
 
 
-  // if(nft){
-  //   const Image = nft.media[0].gateway;
-  //   setUrlImage(Image);
-  //   setURL(true);
-  //   }
-
   return (
     <>
       <Toaster position="bottom-center" reverseOrder={false} />
@@ -318,10 +311,10 @@ export default function TokenPage() {
               onUnmount = {onUnmount}
               options={{ mapId: "9acd4f3c1c3df605" }}
             >
-              {urlImage !== undefined &&
+              {nft &&
               <MarkerF
               icon={{
-                url: urlImage,
+                url: nft.media[0].gateway,
                 scaledSize: new window.google.maps.Size(50, 50), // scaled size
                 origin: new window.google.maps.Point(0, 0), // origin
                 anchor: new window.google.maps.Point(0, 32) // anchor
