@@ -111,6 +111,12 @@ export default function TokenPage() {
           method: "GET",
         }).then((data) => data.json()).then(nft => setNft(nft));
       } catch(e) {}
+
+      try{
+        const Image = nft.media[0].gateway;
+        setUrlImage(Image);
+        setURL(true);
+      }catch(e) {}
        
     })();
   },[NFT_COLLECTION_ADDRESS, API_KEY, router.query.tokenId, marketplace]);
@@ -127,7 +133,8 @@ export default function TokenPage() {
       tokenContract: NFT_COLLECTION_ADDRESS,
       tokenId: tokenID,
     });
-   
+
+   useEffect(() => {
     (async () => {
       let winningBid;
       let offerD;
@@ -143,6 +150,10 @@ export default function TokenPage() {
         }
       } catch(e) {}
     })();
+  },[tokenID, marketplace?.englishAuctions, marketplace?.offers, auctionListing, directListing]);
+
+
+
 
     useEffect(() => {
         let nft;
@@ -285,11 +296,11 @@ export default function TokenPage() {
   }
 
 
-  if(nft){
-    const Image = nft.media[0].gateway;
-    setUrlImage(Image);
-    setURL(true);
-    }
+  // if(nft){
+  //   const Image = nft.media[0].gateway;
+  //   setUrlImage(Image);
+  //   setURL(true);
+  //   }
 
   return (
     <>
