@@ -29,13 +29,13 @@ export const CollectionInfo = ({Nfts} : Props) => {
                 || NFTs[0]?.contractMetadata.openSea.safelistRequestStatus === 'verified') &&
                 <Image className={styles.width18px} src="/verified.png" alt="" width={200} height={200}/>}
                 {(NFTs[0]?.contractMetadata.openSea.twitterUsername != null) &&
-                <Link target="_blank" href={`https://twitter.com/${NFTs[0]?.contractMetadata.openSea.twitterUsername}`}><FontAwesomeIcon icon={faTwitter} className={styles.socialLinksInfo}/></Link>
+                <Link target="_blank" href={`https://twitter.com/${NFTs[0]?.contractMetadata.openSea.twitterUsername}`}>Twitter</Link>
                 }
                 {(NFTs[0]?.contractMetadata.openSea.discordUrl != null) &&
-                <Link target="_blank" href={`${NFTs[0]?.contractMetadata.openSea.discordUrl}`} rel="noopener noreferrer"><FontAwesomeIcon icon={faDiscord} className={styles.socialLinksInfo}/></Link>
+                <Link target="_blank" href={`${NFTs[0]?.contractMetadata.openSea.discordUrl}`} rel="noopener noreferrer">Discord</Link>
                 }
                 {(NFTs[0]?.contractMetadata.openSea.externalUrl != null) &&
-                <Link target="_blank" href={`${NFTs[0]?.contractMetadata.openSea.externalUrl}`} rel="noopener noreferrer"><FontAwesomeIcon icon={faGlobe} className={styles.socialLinksInfo}/></Link>
+                <Link target="_blank" href={`${NFTs[0]?.contractMetadata.openSea.externalUrl}`} rel="noopener noreferrer">Website</Link>
                 }
             </div>
             <div className={styles.gridCollectionInfo}>
