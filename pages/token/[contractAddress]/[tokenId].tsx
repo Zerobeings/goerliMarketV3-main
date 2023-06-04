@@ -50,12 +50,16 @@ interface NFT {
     gateway: string;
   }[];
   description: string;
-  contractMetadata?:{
+  contractMetadata:{
     name: string;
     image: string;
-  }[];
+  };
   title: string;
   image: string;
+}
+
+interface OWNER {
+    owners: string;
 }
 
 export default function TokenPage() {
@@ -63,7 +67,7 @@ export default function TokenPage() {
   const address = useAddress();
   const [bidValue, setBidValue] = useState<string>();
   const [nft, setNft] = useState<NFT | null>(null)
-  const [owner, setOwner] = useState<any[]>([""]);
+  const [owner, setOwner] = useState<OWNER | null>(null);
   const [ownerLoaded, isOwnerLoaded] = useState(false);
   const [center, setCenter] = useState<any>({});
   const [location, setLocation] = useState<any>({});
@@ -464,9 +468,11 @@ export default function TokenPage() {
                 <p className={styles.collectionName}>{nft.contractMetadata.name}</p>
               </div>
             )}
+            {nft &&
             <h1 className={styles.title}>{nft.title}</h1>
+            }
             <p className={styles.collectionName}>Token ID #{tokenID}</p>
-            {ownerLoaded &&
+            {ownerLoaded && owner !== null &&
               <Link
                 href={`/profile/${owner.owners[0]}`}
                 className={styles.nftOwnerContainer}
@@ -611,7 +617,7 @@ export default function TokenPage() {
 
             </div>
             }
-              {ownerLoaded &&
+              {ownerLoaded && owner &&
               <>
               {address &&
               <>
