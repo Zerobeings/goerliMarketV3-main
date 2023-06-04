@@ -32,6 +32,7 @@ import { Navbar } from "../../../components/Navbar/Navbar";
 import { GoogleMap, MarkerF, InfoWindow, useJsApiLoader, LoadScript } from '@react-google-maps/api';
 import OpenLocationCode from "../../../util/open-location-code";
 import DOMPurify from "dompurify";
+import type { NFT as NFTType } from "@thirdweb-dev/sdk";
 
 
 const [randomColor1, randomColor2] = [randomColor(), randomColor()];
@@ -45,13 +46,17 @@ interface NFT {
   contract?: {
     address: string;
   };
+  media: {
+    gateway: string;
+  }[];
+  description: string;
 }
 
 export default function TokenPage() {
   const router = useRouter();
   const address = useAddress();
   const [bidValue, setBidValue] = useState<string>();
-  const [nft, setNft] = useState<any[] | undefined>([])
+  const [nft, setNft] = useState<NFT | null>(null)
   const [owner, setOwner] = useState<any[]>([""]);
   const [ownerLoaded, isOwnerLoaded] = useState(false);
   const [center, setCenter] = useState<any>({});
@@ -63,6 +68,8 @@ export default function TokenPage() {
   const [bids, setBids] = useState<any>()
   const mapRef = useRef<google.maps.Map | null>(null);
   const [display, setDisplay] = useState<boolean>(false);
+  const [url, setURL] = useState<boolean>(false);
+  const [urlImage, setUrlImage] = useState<string>();
 
   // Connect to marketplace smart contract
   const { contract: marketplace, isLoading: loadingContract } = useContract(
@@ -268,7 +275,15 @@ export default function TokenPage() {
   }
 
 
+  if(nft){
+    const Image = nft.media[0].gateway;
+    setUrlImage(Image);
+    setURL(true);
+    }
+
   return (
+    <>
+    {nft && 
     <>
       <Toaster position="bottom-center" reverseOrder={false} />
       <Container maxWidth="lg">
@@ -282,10 +297,10 @@ export default function TokenPage() {
               onUnmount = {onUnmount}
               options={{ mapId: "9acd4f3c1c3df605" }}
             >
-              {nft &&
+              {urlImage !== undefined &&
               <MarkerF
               icon={{
-                url: nft['media'][0]['gateway'],
+                url: urlImage,
                 scaledSize: new window.google.maps.Size(50, 50), // scaled size
                 origin: new window.google.maps.Point(0, 0), // origin
                 anchor: new window.google.maps.Point(0, 32) // anchor
@@ -306,12 +321,12 @@ export default function TokenPage() {
         }
         <div className={styles.container}>
           <div className={styles.metadataContainer}>
-            {nft.metadata && <ThirdwebNftMedia
-              metadata={nft.metadata}
+            {urlImage &&
+            <MediaRenderer
+              src={urlImage}
               className={styles.image}
               controls={true}
             />}
-
             <div className={styles.descriptionContainer}>
               <h3 className={styles.descriptionTitle}>Description</h3>
               <p className={styles.description}>{nft.description}</p>
@@ -319,7 +334,7 @@ export default function TokenPage() {
               <h3 className={styles.descriptionTitle}>Traits</h3>
 
               <div className={styles.traitsContainer}>
-                {nft.metadata?.attributes?.map((trait, i) => (
+                {nft.metadata?.attributes?.map((trait:any, i:number) => (
                     <div className={styles.traitContainer} obj={trait} key={i}>
                       <p className={styles.traitName}>{trait.trait_type}</p>
                       <p className={styles.traitValue}>{trait.value?.toString() || ""} </p>
@@ -657,5 +672,7 @@ export default function TokenPage() {
         </div>
       </Container>
     </>
+  }
+</>
   );
 }
