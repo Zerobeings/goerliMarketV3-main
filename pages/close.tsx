@@ -21,7 +21,7 @@ export const Close = () => {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const [seller, setSeller] = useState<any[]>([])
   const [bid, setBid] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>();
   const [bidPresent, setBidPresent] = useState<boolean>(false);
   const [sellerPresent, setSellerPresent] = useState<boolean>(false);
 
@@ -33,7 +33,7 @@ export const Close = () => {
 
   useEffect(() => {
     (async () => {
-      
+      setIsLoading(false);
       var myAuctionsToClose_o:any = []; //all my auctions to close bidder/offeror
       var myAuctionsToClose_s:any = []; //all my auctions to close seller
       var myWins:any = [];
