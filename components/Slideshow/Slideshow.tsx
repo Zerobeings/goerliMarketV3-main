@@ -22,10 +22,16 @@ import {
   SLIDE_9_IMG,
 } from '../../const/contractAddresses';
 
+type Props = {
+  n: any;
+};
 
-export function Slideshow(){ 
+
+export function Slideshow({n}: Props){ 
+  
 
   useEffect(() => {
+
     let slideIndex = 1;
     showSlides1(slideIndex);
     showSlides2(slideIndex);
@@ -85,22 +91,22 @@ export function Slideshow(){
   }
     
     // Thumbnail image controls
-    function currentSlide1(n) {
+    function currentSlide1(n:any) {
         showSlides1(slideIndex = n);
     }
-    function currentSlide2(n) {
+    function currentSlide2(n:any) {
         showSlides2(slideIndex = n);
     }
-    function currentSlide3(n) {
+    function currentSlide3(n:any) {
     showSlides3(slideIndex = n);
     }
-    function currentSlide4(n) {
+    function currentSlide4(n:any) {
     showSlides4(slideIndex = n);
         }
     
-    function showSlides1(n) {
+    function showSlides1(n:any) {
         let i;
-        let slides = document.querySelectorAll("#mySlides1");
+        let slides = document.querySelectorAll<HTMLElement>("#mySlides1");
         if (n > slides.length) {slideIndex = 1}
         if (n < 1) {slideIndex = slides.length}
         for (i = 0; i < slides.length; i++) {
@@ -109,9 +115,9 @@ export function Slideshow(){
         slides[slideIndex-1].style.display = "block";
     }
     
-    function showSlides2(n) {
+    function showSlides2(n:any) {
       let i;
-      let slides = document.querySelectorAll("#mySlides2");
+      let slides = document.querySelectorAll<HTMLElement>("#mySlides2");
       if (n > slides.length) {slideIndex = 1}
       if (n < 1) {slideIndex = slides.length}
       for (i = 0; i < slides.length; i++) {
@@ -120,9 +126,9 @@ export function Slideshow(){
       slides[slideIndex-1].style.display = "block";
     }
 
-    function showSlides3(n) {
+    function showSlides3(n:any) {
       let i;
-      let slides = document.querySelectorAll("#mySlides3");
+      let slides = document.querySelectorAll<HTMLElement>("#mySlides3");
       if (n > slides.length) {slideIndex = 1}
       if (n < 1) {slideIndex = slides.length}
       for (i = 0; i < slides.length; i++) {
@@ -131,9 +137,9 @@ export function Slideshow(){
       slides[slideIndex-1].style.display = "block";
     }
     
-    function showSlides4(n) {
+    function showSlides4(n:any) {
     let i;
-    let slides = document.querySelectorAll("#mySlides4");
+    let slides = document.querySelectorAll<HTMLElement>("#mySlides4");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
@@ -150,7 +156,7 @@ export function Slideshow(){
         <div className={`${slideStyles.slideshowContainer} ${slideStyles.slide1}`}>
             <a className={slideStyles.prev} id="plusSlides1Minus">&#10094;</a>
             <a className={slideStyles.next} id="plusSlides1Plus">&#10095;</a>
-              <div id="mySlides1" className={`${slideStyles.mySlides1} ${slideStyles.fade}`}>
+              <div id="mySlides1" className={slideStyles.mySlides1}>
                 <Image
                   src={SLIDE_1_IMG}
                   width={250}
@@ -158,7 +164,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                  value={SLIDE_1}
                 />
           
                 <Image
@@ -168,7 +173,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                  value={SLIDE_2}
                 />
             
                 <Image
@@ -178,7 +182,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                  value={SLIDE_3}
                 />
             
                 <Image
@@ -188,11 +191,10 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                  value={SLIDE_4}
                 />
             </div>
 
-            <div id="mySlides1" className={`${slideStyles.mySlides1} ${slideStyles.fade}`}>
+            <div id="mySlides1" className={slideStyles.mySlides1}>
                 <Image
                   src={SLIDE_5_IMG}
                   width={250}
@@ -200,7 +202,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                  value={SLIDE_5}
                 />
 
                 <Image
@@ -210,7 +211,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                  value={SLIDE_6}
                 />
             
                 <Image
@@ -220,7 +220,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                  value={SLIDE_7}
                 />
             
                 <Image
@@ -230,13 +229,12 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                  value={SLIDE_8}
                 />
             </div>
           </div>
 
           <div className={`${slideStyles.slideshowContainer} ${slideStyles.slide2}`}>
-            <div id="mySlides2" className={slideStyles.mySlides2, slideStyles.fade}>
+            <div id="mySlides2" className={slideStyles.mySlides2}>
             <Image
                   src={SLIDE_1_IMG}
                   width={250}
@@ -244,7 +242,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                  value={SLIDE_1}
                 />
           
                 <Image
@@ -254,7 +251,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                  value={SLIDE_2}
                 />
             
                 <Image
@@ -264,12 +260,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                  value={SLIDE_3}
                 />
                 
             </div>
 
-            <div id="mySlides2" className={slideStyles.mySlides2, slideStyles.fade}>
+            <div id="mySlides2" className={slideStyles.mySlides2}>
                 <Image
                   src={SLIDE_4_IMG}
                   width={250}
@@ -277,7 +272,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                  value={SLIDE_4}
                 />
 
                 <Image
@@ -287,7 +281,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                  value={SLIDE_5}
                 />
 
                 <Image
@@ -297,11 +290,10 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                  value={SLIDE_6}
                 />
               </div>
 
-              <div id="mySlides2" className={slideStyles.mySlides2, slideStyles.fade}>
+              <div id="mySlides2" className={slideStyles.mySlides2}>
                 <Image
                   src={SLIDE_7_IMG}
                   width={250}
@@ -309,7 +301,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                  value={SLIDE_7}
                 />
             
                 <Image
@@ -319,7 +310,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                  value={SLIDE_8}
                 />
 
                 <Image
@@ -329,7 +319,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_9}`)}
-                  value={SLIDE_9}
                 />
               </div>
                 
@@ -339,7 +328,7 @@ export function Slideshow(){
           </div>
 
           <div className={`${slideStyles.slideshowContainer} ${slideStyles.slide3}`}>
-            <div id="mySlides3" className={slideStyles.mySlides3, slideStyles.fade}>
+            <div id="mySlides3" className={slideStyles.mySlides3}>
               
                 <Image
                   src={SLIDE_1_IMG}
@@ -348,7 +337,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                  value={SLIDE_1}
                 />
           
                 <Image
@@ -358,13 +346,12 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                  value={SLIDE_2}
                 />
                 
             </div>
 
 
-            <div id="mySlides3" className={slideStyles.mySlides3, slideStyles.fade}>
+            <div id="mySlides3" className={slideStyles.mySlides3}>
               
                 <Image
                   src={SLIDE_3_IMG}
@@ -373,7 +360,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                  value={SLIDE_3}
                 />
           
                 <Image
@@ -383,12 +369,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                  value={SLIDE_4}
                 />
                 
             </div>
 
-            <div id="mySlides3" className={slideStyles.mySlides3, slideStyles.fade}>
+            <div id="mySlides3" className={slideStyles.mySlides3}>
               
                 <Image
                   src={SLIDE_5_IMG}
@@ -397,7 +382,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                  value={SLIDE_5}
                 />
           
                 <Image
@@ -407,12 +391,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                  value={SLIDE_6}
                 />
                 
             </div>
 
-            <div id="mySlides3" className={slideStyles.mySlides3, slideStyles.fade}>
+            <div id="mySlides3" className={slideStyles.mySlides3}>
               
                 <Image
                   src={SLIDE_7_IMG}
@@ -421,7 +404,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                  value={SLIDE_7}
                 />
           
                 <Image
@@ -431,7 +413,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                  value={SLIDE_8}
                 />
                 
             </div>
@@ -440,7 +421,7 @@ export function Slideshow(){
           </div>
 
           <div className={`${slideStyles.slideshowContainer} ${slideStyles.slide4}`}>
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_1_IMG}
                   width={250}
@@ -448,12 +429,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                  value={SLIDE_1}
                 />
                 
             </div>
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_2_IMG}
                   width={250}
@@ -461,12 +441,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                  value={SLIDE_2}
                 />
                 
             </div>
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_3_IMG}
                   width={250}
@@ -474,12 +453,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                  value={SLIDE_3}
                 />
                 
             </div>
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_4_IMG}
                   width={250}
@@ -487,12 +465,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                  value={SLIDE_4}
                 />
                 
             </div>
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_5_IMG}
                   width={250}
@@ -500,12 +477,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                  value={SLIDE_5}
                 />
                 
             </div>
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_6_IMG}
                   width={250}
@@ -513,12 +489,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                  value={SLIDE_6}
                 />
                 
             </div>
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_7_IMG}
                   width={250}
@@ -526,12 +501,11 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                  value={SLIDE_7}
                 />
                 
             </div>
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_8_IMG}
                   width={250}
@@ -539,13 +513,12 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                  value={SLIDE_8}
                 />
                 
             </div>
 
 
-            <div id="mySlides4" className={slideStyles.mySlides4, slideStyles.fade}>
+            <div id="mySlides4" className={slideStyles.mySlides4}>
                 <Image
                   src={SLIDE_9_IMG}
                   width={250}
@@ -553,7 +526,6 @@ export function Slideshow(){
                   alt="Market gm ☕️"
                   className = {slideStyles.imageStyle}
                   onClick={(e)=>(location.href = `/collection/${SLIDE_9}`)}
-                  value={SLIDE_9}
                 />
                 
             </div>

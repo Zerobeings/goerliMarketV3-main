@@ -22,8 +22,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThirdwebProvider activeChain={NETWORK}
       supportedWallets={[
         smartWallet({
-          factoryAddress: process.env.NEXT_PUBLIC_TWFactoryAddress,
-          thirdwebApiKey: process.env.NEXT_PUBLIC_TWApiKey,
+          factoryAddress: process.env.NEXT_PUBLIC_TWFactoryAddress as string,
+          thirdwebApiKey: process.env.NEXT_PUBLIC_TWApiKey as string,
           gasless: true,
           personalWallets: [
             metamaskWallet(), 
