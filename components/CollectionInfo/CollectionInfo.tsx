@@ -2,10 +2,9 @@ import styles from "./CollectionInfo.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import FontAwesomeIcon from '@fortawesome/free-solid-svg-icons';
-import { NFT } from "@thirdweb-dev/sdk";
 
 type Props = {
-  Nfts: NFT;
+  Nfts: Array<string | number>;
 };
 
 export const CollectionInfo = ({Nfts} : Props) => {
