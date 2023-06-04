@@ -37,12 +37,12 @@ import DOMPurify from "dompurify";
 const [randomColor1, randomColor2] = [randomColor(), randomColor()];
 
 interface NFT {
-  metadata: {
+  metadata?: {
     attributes: Record<string, any>;
     centerpoint: string;
     contentstring: string | null;
-  } | null;
-  contract: {
+  };
+  contract?: {
     address: string;
   };
 }
@@ -51,7 +51,7 @@ export default function TokenPage() {
   const router = useRouter();
   const address = useAddress();
   const [bidValue, setBidValue] = useState<string>();
-  const [nft, setNft] = useState<NFT | null>(null)
+  const [nft, setNft] = useState<any[] | undefined>([])
   const [owner, setOwner] = useState<any[]>([""]);
   const [ownerLoaded, isOwnerLoaded] = useState(false);
   const [center, setCenter] = useState<any>({});
@@ -134,10 +134,10 @@ export default function TokenPage() {
           var centerl = { lat: 40.783, lng: -73.971 };
           setCenter(centerl);
           if (nft) {
-            var attributes = Object.keys(nft?.metadata?.attributes);
+            var attributes = Object.keys(nft['metadata']['attributes']);
               for (let p=0; p<attributes.length; p++){ 
-                  if (nft.metadata?.attributes[p].trait_type === "Loc" && NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
-                      var a = "87G8"+nft.metadata.attributes[p].value;
+                  if (nft['metadata']['attributes'][p]['trait_type'] === "Loc" && NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+                      var a = "87G8"+nft['metadata']['attributes'][p]['value'];
                       var area = OpenLocationCode.decode(a);
                       var loc = { lat: area.latitudeCenter, lng: area.longitudeCenter };
                       setLocation(loc);
@@ -145,16 +145,16 @@ export default function TokenPage() {
                   }
               }
           }
-        } else if(nft.metadata && nft.metadata.attributes) {
+        } else if(nft && nft['metadata'] && nft['metadata']['attributes']) {
 
-          var c = nft.metadata.centerpoint;
+          var c = nft['metadata']['centerpoint'];
           var carea = OpenLocationCode.decode(c);
           var centerl = { lat: carea.latitudeCenter, lng: carea.longitudeCenter };
           setCenter(centerl);
-          var attributes = Object.keys(nft.metadata?.attributes);
+          var attributes = Object.keys(nft['metadata']['attributes']);
             for (let p=0; p<attributes.length; p++){ 
-            if (nft.metadata?.attributes[p].trait_type === "Loc"){
-                var a:string = nft.metadata.attributes[p].value;
+            if (nft['metadata']['attributes'][p]['trait_type'] === "Loc"){
+                var a:string = nft['metadata']['attributes'][p]['value'];
                 var area = OpenLocationCode.decode(a);
                 var loc = { lat: area.latitudeCenter, lng: area.longitudeCenter };
                 setLocation(loc);
@@ -165,7 +165,7 @@ export default function TokenPage() {
         }
 
         //content string for marker window
-        if (nft.contract.address === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+        if (NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
           var presanitizeString:string =
               '<div id="content" class="color-black">' +
               '<div id="siteNotice" class="color-black">' +
@@ -177,12 +177,11 @@ export default function TokenPage() {
               "</div>" +
               "</div>";
               var contentString = DOMPurify.sanitize(presanitizeString);
-          } else if (nft.metadata && nft.metadata.contentstring !== null){
-              const presanitizeString: string | null = new DOMParser().parseFromString(nft.metadata.contentstring, "text/html").all[0].textContent;
-              if (presanitizeString !== null) {
+          } else if (nft && nft['metadata'] && nft['metadata']['contentstring']){
+              const presanitizeString = new DOMParser().parseFromString(nft['metadata']['contentstring'], "text/html").all[0].textContent!;
               var contentString = DOMPurify.sanitize(presanitizeString);
               setContent(contentString);
-              }
+             
           }
     },[nft, NFT_COLLECTION_ADDRESS]);
 
@@ -282,11 +281,11 @@ export default function TokenPage() {
               onLoad = {onLoad}
               onUnmount = {onUnmount}
               options={{ mapId: "9acd4f3c1c3df605" }}
-              ref={mapRef}
             >
+              {nft &&
               <MarkerF
               icon={{
-                url: nft.media[0].gateway,
+                url: nft['media'][0]['gateway'],
                 scaledSize: new window.google.maps.Size(50, 50), // scaled size
                 origin: new window.google.maps.Point(0, 0), // origin
                 anchor: new window.google.maps.Point(0, 32) // anchor
@@ -302,6 +301,7 @@ export default function TokenPage() {
                     </div>
                 </InfoWindow>)}
               </MarkerF>
+              }
             </GoogleMap>
         }
         <div className={styles.container}>
