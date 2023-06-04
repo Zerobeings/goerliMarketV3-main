@@ -15,9 +15,11 @@ import styles from "./NFT.module.css";
 type Props = {
   nft: any;
   collection: any;
+  listing: DirectListingV3 | EnglishAuction;
+  key: string;
 };
 
-export default function NFTComponent({ nft, collection}: Props) {
+export default function NFTComponent({ nft, collection, listing, key }: Props) {
   const NFT_COLLECTION_ADDRESS = collection;
   const IDtoken = Number(nft?.id?.tokenId) || nft?.metadata?.id; 
   const { contract: marketplace, isLoading: loadingContract } = useContract(

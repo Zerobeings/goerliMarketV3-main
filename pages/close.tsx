@@ -14,20 +14,14 @@ import {ALCH_NET, MARKETPLACE_ADDRESS} from '../const/contractAddresses';
 import toast, { Toaster } from "react-hot-toast";
 import toastStyle from "../util/toastConfig";
 
-type Props = {
-  nft: any;
-  collection: string;
-  key: any;
-  index: any;
-};
 
-export const Close = ({ nft, collection, index }: Props) => {
+export const Close = () => {
   // Load all of the NFTs from the NFT Collection
   const address = useAddress();
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const [seller, setSeller] = useState<any[]>([])
   const [bid, setBid] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState<boolean>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [bidPresent, setBidPresent] = useState<boolean>(false);
   const [sellerPresent, setSellerPresent] = useState<boolean>(false);
 
@@ -39,7 +33,6 @@ export const Close = ({ nft, collection, index }: Props) => {
 
   useEffect(() => {
     (async () => {
-      setIsLoading(false);
       
       var myAuctionsToClose_o:any = []; //all my auctions to close bidder/offeror
       var myAuctionsToClose_s:any = []; //all my auctions to close seller
