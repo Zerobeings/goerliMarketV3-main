@@ -8,7 +8,6 @@ import React, { useState, useEffect } from "react";
 import Container from "../components/Container/Container";
 import NFTGridSell from "../components/NFT/NFTGridSell";
 import tokenPageStyles from "../styles/Token.module.css";
-import { NFT as NFTType } from "@thirdweb-dev/sdk";
 import SaleInfo from "../components/SaleInfo/SaleInfo";
 import {ALCH_NET} from '../const/contractAddresses';
 
@@ -17,7 +16,7 @@ export const Sell = () => {
   const address = useAddress();
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const [data, setData] = useState<any[]>([]);
-  const [selectedNft, setSelectedNft] = useState<NFTType>();
+  const [selectedNft, setSelectedNft] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {

@@ -10,7 +10,6 @@ type Props = {
   data: any[] | undefined;
   overrideOnclickBehavior?: (nft: NFTType) => void;
   emptyText?: string;
-  collection: string;
 };
 
 export default function NFTGridSell({
