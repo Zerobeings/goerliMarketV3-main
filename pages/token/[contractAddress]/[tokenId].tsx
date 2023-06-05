@@ -32,7 +32,6 @@ import { Navbar } from "../../../components/Navbar/Navbar";
 import { GoogleMap, MarkerF, InfoWindow, useJsApiLoader, LoadScript } from '@react-google-maps/api';
 import OpenLocationCode from "../../../util/open-location-code";
 import DOMPurify from "dompurify";
-//import {z, ZodNullable, ZodOptional, ZodUnion, ZodString, ZodNumber } from 'zod';
 
 
 const [randomColor1, randomColor2] = [randomColor(), randomColor()];
