@@ -12,7 +12,7 @@ import {
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect, useRef } from "react";
 import Container from "../../../components/Container/Container";
-import {ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import {
   ETHERSCAN_URL,
   MARKETPLACE_ADDRESS,
@@ -32,7 +32,7 @@ import { Navbar } from "../../../components/Navbar/Navbar";
 import { GoogleMap, MarkerF, InfoWindow, useJsApiLoader, LoadScript } from '@react-google-maps/api';
 import OpenLocationCode from "../../../util/open-location-code";
 import DOMPurify from "dompurify";
-import type { NFT as NFTType } from "@thirdweb-dev/sdk";
+//import {z, ZodNullable, ZodOptional, ZodUnion, ZodString, ZodNumber } from 'zod';
 
 
 const [randomColor1, randomColor2] = [randomColor(), randomColor()];
@@ -43,11 +43,10 @@ interface NFT {
     centerpoint: string;
     contentstring: string | null;
     image: string;
+    name: string;
+    description: string;
     animation_url: string;
-    name: ZodNullable<ZodOptional<ZodUnion<[ZodString, ZodNumber]>>>;
-    description: ZodNullable<ZodOptional<ZodNullable<ZodString>>>;
-    animation_url: ZodOptional<ZodOptional<ZodNullable<ZodString>>>;
-  };
+  } | any;
   contract?: {
     address: string;
   };
@@ -84,7 +83,6 @@ export default function TokenPage() {
   const mapRef = useRef<google.maps.Map | null>(null);
   const [display, setDisplay] = useState<boolean>(false);
   const [url, setURL] = useState<boolean>(false);
- // const [urlImage, setUrlImage] = useState<string>("");
 
   // Connect to marketplace smart contract
   const { contract: marketplace, isLoading: loadingContract } = useContract(
@@ -118,7 +116,7 @@ export default function TokenPage() {
       } catch(e) {}
 
         setURL(true);
-       
+        
     })();
   },[NFT_COLLECTION_ADDRESS, API_KEY, router.query.tokenId, marketplace]);
 
@@ -339,6 +337,7 @@ export default function TokenPage() {
               <ThirdwebNftMedia
               metadata={nft.metadata}
               className={styles.image}
+              controls={true}
               />
            }
             {nft &&
