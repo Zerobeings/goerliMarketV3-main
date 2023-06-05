@@ -6,13 +6,13 @@ import {
   Web3Button,
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
-import Container from "../components/Container/Container";
-import ListingsClose from "../components/ListingsClose/ListingsClose";
-import ListingsCloseBid from "../components/ListingsClose/ListingsCloseBid";
+import Container from "../Container/Container";
+import ListingsClose from "../ListingsClose/ListingsClose";
+import ListingsCloseBid from "../ListingsClose/ListingsCloseBid";
 import tokenPageStyles from "../styles/Token.module.css";
-import {ALCH_NET, MARKETPLACE_ADDRESS} from '../const/contractAddresses';
+import {ALCH_NET, MARKETPLACE_ADDRESS} from '../../const/contractAddresses';
 import toast, { Toaster } from "react-hot-toast";
-import toastStyle from "../util/toastConfig";
+import toastStyle from "../../util/toastConfig";
 
 
 export const Close = () => {

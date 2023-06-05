@@ -5,11 +5,11 @@ import {
   useOwnedNFTs,
 } from "@thirdweb-dev/react";
 import React, { useState, useEffect } from "react";
-import Container from "../components/Container/Container";
-import NFTGridSell from "../components/NFT/NFTGridSell";
-import tokenPageStyles from "../styles/Token.module.css";
-import SaleInfo from "../components/SaleInfo/SaleInfo";
-import {ALCH_NET} from '../const/contractAddresses';
+import Container from "../Container/Container";
+import NFTGridSell from "../NFT/NFTGridSell";
+import tokenPageStyles from "../../styles/Token.module.css";
+import SaleInfo from "../SaleInfo/SaleInfo";
+import {ALCH_NET} from '../../const/contractAddresses';
 
 export const Sell = () => {
   // Load all of the NFTs from the NFT Collection

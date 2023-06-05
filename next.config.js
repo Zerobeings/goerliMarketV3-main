@@ -20,7 +20,6 @@ const nextConfig = {
       },
     ],
   },
-  pageExtensions: ['close.tsx', 'sell.tsx'],
 };
 
 module.exports = nextConfig;

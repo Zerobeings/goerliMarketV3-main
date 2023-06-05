@@ -19,8 +19,8 @@ import randomColor from "../../util/randomColor";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { NFTCard } from '../../components/NFTCard/NFTCard';
 import { ListingsCard } from '../../components/ListingsCard/ListingsCard';
-import {Sell} from '../../pages/sell';
-import {Close} from '../../pages/close';
+import {Sell} from '../../components/Sell/sell';
+import {Close} from '../../components/Close/close';
 
 const [randomColor1, randomColor2, randomColor3, randomColor4] = [
   randomColor(),
