@@ -25,18 +25,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         smartWallet({
           factoryAddress: process.env.NEXT_PUBLIC_TWFactoryAddress as string,
           thirdwebApiKey: process.env.NEXT_PUBLIC_TWApiKey as string,
-          gasless: true,
-          personalWallets: [
-            metamaskWallet(), 
-            localWallet({ persist: true }), 
-            coinbaseWallet(), 
-            walletConnect(),
-            safeWallet(),
-            magicLink({
-              apiKey: process.env.NEXT_PUBLIC_MAGIC as string,
-            })
-          ],
+          gasless: false,
         }),
+        metamaskWallet(), 
+        localWallet({ persist: true }), 
+        coinbaseWallet(), 
+        walletConnect(),
+        safeWallet(),
+        magicLink({
+          apiKey: process.env.NEXT_PUBLIC_MAGIC as string,
+        })
       ]}
     >
       {/* Progress bar when navigating between pages */}
