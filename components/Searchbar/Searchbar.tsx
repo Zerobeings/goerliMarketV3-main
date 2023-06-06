@@ -4,11 +4,13 @@ import Link from "next/link";
 import stylesnav from "./Searchbar.module.css";
 import React, { useState, useRef, useEffect } from "react";
 import {NAV_LOGO, PROFILE_LOGO} from '../../const/contractAddresses';
+import { useRouter } from 'next/router';
 
 
 export function Searchbar() {
-    const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
   const address = useAddress();
+  const router = useRouter();
   
   return (
     
@@ -32,9 +34,10 @@ export function Searchbar() {
           onChange={(e)=>(setSearch(e.target.value))}
           onKeyPress={event => {
             if (event.key === 'Enter' && search) {
-              location.href = `/collection/${search}`;
-            }
-          }}
+              event.preventDefault();
+              router.push(`/collection/${search}`);
+            };
+            }}
           />
       )}
       <div className={stylesnav.navRight}>
