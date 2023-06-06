@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import slideStyles from "./Slideshow.module.css";
 import Image from "next/image";
+import Link from "next/link";
 import {
   SLIDE_1,
   SLIDE_1_IMG,
@@ -153,169 +154,208 @@ export function Slideshow(){
             <a className={slideStyles.prev} id="plusSlides1Minus">&#10094;</a>
             <a className={slideStyles.next} id="plusSlides1Plus">&#10095;</a>
               <div id="mySlides1" className={slideStyles.mySlides1}>
-                <Image
-                  src={SLIDE_1_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                />
-          
-                <Image
-                  src={SLIDE_2_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                />
+                <Link href={`/collection/${SLIDE_1}`}>
+                  <Image
+                    src={SLIDE_1_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+                <Link href={`/collection/${SLIDE_2}`}>
+                  <Image
+                    src={SLIDE_2_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
             
-                <Image
-                  src={SLIDE_3_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                />
+                <Link href={`/collection/${SLIDE_3}`}>
+                  <Image
+                    src={SLIDE_3_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
             
-                <Image
-                  src={SLIDE_4_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                />
+                <Link href={`/collection/${SLIDE_4}`}>
+                  <Image
+                    src={SLIDE_4_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
             </div>
 
             <div id="mySlides1" className={slideStyles.mySlides1}>
-                <Image
-                  src={SLIDE_5_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                />
+            <Link href={`/collection/${SLIDE_5}`}>
+                  <Image
+                    src={SLIDE_5_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
 
-                <Image
-                  src={SLIDE_6_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                />
+                <Link href={`/collection/${SLIDE_6}`}>
+                  <Image
+                    src={SLIDE_6_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
+          
+                  <Link href={`/collection/${SLIDE_7}`}>
+                  <Image
+                    src={SLIDE_7_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
             
-                <Image
-                  src={SLIDE_7_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                />
-            
-                <Image
-                  src={SLIDE_8_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                />
+                  <Link href={`/collection/${SLIDE_8}`}>
+                  <Image
+                    src={SLIDE_8_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
             </div>
           </div>
 
           <div className={`${slideStyles.slideshowContainer} ${slideStyles.slide2}`}>
             <div id="mySlides2" className={slideStyles.mySlides2}>
-            <Image
-                  src={SLIDE_1_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                />
+            <Link href={`/collection/${SLIDE_1}`}>
+                  <Image
+                    src={SLIDE_1_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
           
-                <Image
-                  src={SLIDE_2_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                />
+                <Link href={`/collection/${SLIDE_2}`}>
+                  <Image
+                    src={SLIDE_2_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
             
-                <Image
-                  src={SLIDE_3_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                />
+               <Link href={`/collection/${SLIDE_3}`}>
+                  <Image
+                    src={SLIDE_3_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides2" className={slideStyles.mySlides2}>
-                <Image
-                  src={SLIDE_4_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                />
+                 <Link href={`/collection/${SLIDE_4}`}>
+                  <Image
+                    src={SLIDE_4_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
 
-                <Image
-                  src={SLIDE_5_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                />
+                <Link href={`/collection/${SLIDE_5}`}>
+                  <Image
+                    src={SLIDE_5_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
 
-                <Image
-                  src={SLIDE_6_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                />
+                <Link href={`/collection/${SLIDE_6}`}>
+                  <Image
+                    src={SLIDE_6_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
+                <Link href={`/collection/${SLIDE_6}`}>
+                  <Image
+                    src={SLIDE_6_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
               </div>
 
               <div id="mySlides2" className={slideStyles.mySlides2}>
-                <Image
-                  src={SLIDE_7_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                />
-            
-                <Image
-                  src={SLIDE_8_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                />
+                  <Link href={`/collection/${SLIDE_7}`}>
+                  <Image
+                    src={SLIDE_7_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
 
-                <Image
-                  src={SLIDE_9_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_9}`)}
-                />
+                  <Link href={`/collection/${SLIDE_7}`}>
+                  <Image
+                    src={SLIDE_7_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+            
+                
+                  <Link href={`/collection/${SLIDE_8}`}>
+                  <Image
+                    src={SLIDE_8_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
+                <Link href={`/collection/${SLIDE_9}`}>
+                  <Image
+                    src={SLIDE_9_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
               </div>
                 
             
@@ -326,90 +366,119 @@ export function Slideshow(){
           <div className={`${slideStyles.slideshowContainer} ${slideStyles.slide3}`}>
             <div id="mySlides3" className={slideStyles.mySlides3}>
               
-                <Image
-                  src={SLIDE_1_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                />
+                <Link href={`/collection/${SLIDE_1}`}>
+                  <Image
+                    src={SLIDE_1_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
           
-                <Image
-                  src={SLIDE_2_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                />
+                <Link href={`/collection/${SLIDE_2}`}>
+                  <Image
+                    src={SLIDE_2_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
 
             <div id="mySlides3" className={slideStyles.mySlides3}>
               
-                <Image
-                  src={SLIDE_3_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                />
+               <Link href={`/collection/${SLIDE_3}`}>
+                  <Image
+                    src={SLIDE_3_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
           
-                <Image
-                  src={SLIDE_4_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                />
+                 <Link href={`/collection/${SLIDE_4}`}>
+                  <Image
+                    src={SLIDE_4_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides3" className={slideStyles.mySlides3}>
               
-                <Image
-                  src={SLIDE_5_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                />
+                <Link href={`/collection/${SLIDE_5}`}>
+                  <Image
+                    src={SLIDE_5_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
           
-                <Image
-                  src={SLIDE_6_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                />
+                <Link href={`/collection/${SLIDE_6}`}>
+                  <Image
+                    src={SLIDE_6_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
+                <Link href={`/collection/${SLIDE_6}`}>
+                  <Image
+                    src={SLIDE_6_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides3" className={slideStyles.mySlides3}>
               
-                <Image
-                  src={SLIDE_7_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                />
+                  <Link href={`/collection/${SLIDE_7}`}>
+                  <Image
+                    src={SLIDE_7_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
+                  <Link href={`/collection/${SLIDE_7}`}>
+                  <Image
+                    src={SLIDE_7_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
           
-                <Image
-                  src={SLIDE_8_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                />
+                
+                  <Link href={`/collection/${SLIDE_8}`}>
+                  <Image
+                    src={SLIDE_8_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
             <a className={slideStyles.prev} id="plusSlides3Minus">&#10094;</a>
@@ -418,111 +487,141 @@ export function Slideshow(){
 
           <div className={`${slideStyles.slideshowContainer} ${slideStyles.slide4}`}>
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_1_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_1}`)}
-                />
+                <Link href={`/collection/${SLIDE_1}`}>
+                  <Image
+                    src={SLIDE_1_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_2_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_2}`)}
-                />
+                <Link href={`/collection/${SLIDE_2}`}>
+                  <Image
+                    src={SLIDE_2_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_3_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_3}`)}
-                />
+               <Link href={`/collection/${SLIDE_3}`}>
+                  <Image
+                    src={SLIDE_3_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_4_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_4}`)}
-                />
+                 <Link href={`/collection/${SLIDE_4}`}>
+                  <Image
+                    src={SLIDE_4_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_5_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_5}`)}
-                />
+                <Link href={`/collection/${SLIDE_5}`}>
+                  <Image
+                    src={SLIDE_5_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_6_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_6}`)}
-                />
+                <Link href={`/collection/${SLIDE_6}`}>
+                  <Image
+                    src={SLIDE_6_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
+                <Link href={`/collection/${SLIDE_6}`}>
+                  <Image
+                    src={SLIDE_6_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_7_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_7}`)}
-                />
+                  <Link href={`/collection/${SLIDE_7}`}>
+                  <Image
+                    src={SLIDE_7_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
+
+                  <Link href={`/collection/${SLIDE_7}`}>
+                  <Image
+                    src={SLIDE_7_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_8_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_8}`)}
-                />
+                
+                  <Link href={`/collection/${SLIDE_8}`}>
+                  <Image
+                    src={SLIDE_8_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
 
 
             <div id="mySlides4" className={slideStyles.mySlides4}>
-                <Image
-                  src={SLIDE_9_IMG}
-                  width={250}
-                  height={250}
-                  alt="Market gm ☕️"
-                  className = {slideStyles.imageStyle}
-                  onClick={(e)=>(location.href = `/collection/${SLIDE_9}`)}
-                />
+            <Link href={`/collection/${SLIDE_9}`}>
+                  <Image
+                    src={SLIDE_9_IMG}
+                    width={250}
+                    height={250}
+                    alt="Market gm ☕️"
+                    className = {slideStyles.imageStyle}
+                  />
+                </Link>
                 
             </div>
            

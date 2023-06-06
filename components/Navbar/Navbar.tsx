@@ -5,10 +5,6 @@ import styles from "./Navbar.module.css";
 import React, { useState, useRef, useEffect } from "react";
 import {NAV_LOGO, PROFILE_LOGO} from '../../const/contractAddresses';
 
-/**
- * Navigation bar that shows up on all pages.
- * Rendered in _app.tsx file above the page content.
- */
 export function Navbar() {
   
   const address = useAddress();

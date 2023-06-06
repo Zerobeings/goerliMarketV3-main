@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../../styles/Home.module.css";
@@ -6,7 +5,7 @@ import stylesnav from "../../components/Searchbar/Searchbar.module.css";
 import slideStyles from "../../components/Slideshow/Slideshow.module.css";
 import { NFTCard } from '../../components/NFTCard/NFTCard';
 import React, { useState, useRef, useEffect } from "react"
-import { ConnectWallet, useAddress, useContract, useNFTs } from "@thirdweb-dev/react";
+import { useAddress } from "@thirdweb-dev/react";
 import Container from "../../components/Container/Container";
 import { Slideshow } from '../../components/Slideshow/Slideshow';
 import FontAwesomeIcon from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +15,7 @@ import {ALCH_NET} from '../../const/contractAddresses';
 import { useRouter } from "next/router";
 import {Searchbar} from '../../components/Searchbar/Searchbar';
 
-export default function CollectionPage()  {
+export default function CollectionPage(){
     const router = useRouter();
     const address = useAddress();
     const collection = router.query.contractAddress as string
