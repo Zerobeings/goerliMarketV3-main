@@ -105,7 +105,3 @@ export const SLIDE_8_IMG = "https://nft-cdn.alchemy.com/eth-goerli/3733eb0db73c4
 export const SLIDE_9 = "0x9870Da00643AeA2BE9dF89d87efeD0A2fdb5479e"
 export const SLIDE_9_IMG = "https://nft-cdn.alchemy.com/eth-goerli/ea2e10829257be64d922f4b2b3be3712"
 ```
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
