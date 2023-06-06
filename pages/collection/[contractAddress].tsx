@@ -16,10 +16,6 @@ import {ALCH_NET} from '../../const/contractAddresses';
 import { useRouter } from "next/router";
 import {Searchbar} from '../../components/Searchbar/Searchbar';
 
-/**
- * Landing page with a simple gradient background and a hero asset.
- * Free to customize as you see fit.  
- */
 export default function CollectionPage()  {
     const router = useRouter();
     const address = useAddress();
@@ -101,7 +97,7 @@ const fetchNFTs = async() => {
             <div className={styles.heroBody}>
               <h1 className={styles.heroTitle}>
                 <span className={styles.heroTitleGradient}>
-                  sepolia - Market gm ☕️
+                  goerli - Market gm ☕️
                 </span>
               </h1>
               <div className={styles.textCenter}>0.5% Platform Fee & <a className={styles.link} href="https://eips.ethereum.org/EIPS/eip-2981">EIP-2981</a> Royalties Honored</div>
