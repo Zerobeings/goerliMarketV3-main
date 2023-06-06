@@ -20,7 +20,7 @@ export class CodeArea {
    */
   public longitudeCenter: number;
 
-  constructor(public latitudeLo:number, public longitudeLo:number, public latitudeHi:number, public longitudeHi:number, public codeLength:number) {
+  constructor(public latitudeLo:any, public longitudeLo:any, public latitudeHi:any, public longitudeHi:any, public codeLength:any) {
     this.latitudeCenter = Math.min(latitudeLo + (latitudeHi - latitudeLo) / 2, LATITUDE_MAX);
     this.longitudeCenter = Math.min(longitudeLo + (longitudeHi - longitudeLo) / 2, LONGITUDE_MAX);
   }

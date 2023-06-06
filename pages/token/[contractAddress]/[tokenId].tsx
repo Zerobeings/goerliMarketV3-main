@@ -26,7 +26,6 @@ import Skeleton from "../../../components/Skeleton/Skeleton";
 import toast, { Toaster } from "react-hot-toast";
 import toastStyle from "../../../util/toastConfig";
 import mapStyle from "../../../util/mapConfig";
-import {abi} from "../../../components/abi/erc721";
 import { useRouter } from "next/router";
 import { Navbar } from "../../../components/Navbar/Navbar";
 import { GoogleMap, MarkerF, InfoWindow, useJsApiLoader, LoadScript } from '@react-google-maps/api';
@@ -79,8 +78,8 @@ export default function TokenPage() {
   const [selectedMarker, setSelectedMarker] = useState<any | null>(location);
   const [offers, setOffers] = useState<any[] | undefined>([])
   const [bids, setBids] = useState<any>()
-  const mapRef = useRef<google.maps.Map | null>(null);
-  const [display, setDisplay] = useState<boolean>(false);
+  // const mapRef = useRef<google.maps.Map | null>(null);
+  // const [display, setDisplay] = useState<boolean>(false);
   const [url, setURL] = useState<boolean>(false);
 
   // Connect to marketplace smart contract
@@ -153,63 +152,63 @@ export default function TokenPage() {
 
 
 
-    useEffect(() => {
-        let nft;
-        // The location of loctok NFT
-        if(NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
-          var centerl = { lat: 40.783, lng: -73.971 };
-          setCenter(centerl);
-          if (nft) {
-            var attributes = Object.keys(nft['metadata']['attributes']);
-              for (let p=0; p<attributes.length; p++){ 
-                  if (nft['metadata']['attributes'][p]['trait_type'] === "Loc" && NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
-                      var a = "87G8"+nft['metadata']['attributes'][p]['value'];
-                      var area = OpenLocationCode.decode(a);
-                      var loc = { lat: area.latitudeCenter, lng: area.longitudeCenter };
-                      setLocation(loc);
-                      setDisplay(true);
-                  }
-              }
-          }
-        } else if(nft && nft['metadata'] && nft['metadata']['attributes']) {
+    // useEffect(() => {
+    //     let nft;
+    //     // The location of loctok NFT
+    //     if(NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+    //       var centerl = { lat: 40.783, lng: -73.971 };
+    //       setCenter(centerl);
+    //       if (nft) {
+    //         var attributes = Object.keys(nft['metadata']['attributes']);
+    //           for (let p=0; p<attributes.length; p++){ 
+    //               if (nft['metadata']['attributes'][p]['trait_type'] === "Loc" && NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+    //                   var a = "87G8"+nft['metadata']['attributes'][p]['value'];
+    //                   var area = OpenLocationCode.decode(a);
+    //                   var loc = { lat: area.latitudeCenter, lng: area.longitudeCenter };
+    //                   setLocation(loc);
+    //                   setDisplay(true);
+    //               }
+    //           }
+    //       }
+    //     } else if(nft && nft['metadata'] && nft['metadata']['attributes']) {
 
-          var c = nft['metadata']['centerpoint'];
-          var carea = OpenLocationCode.decode(c);
-          var centerl = { lat: carea.latitudeCenter, lng: carea.longitudeCenter };
-          setCenter(centerl);
-          var attributes = Object.keys(nft['metadata']['attributes']);
-            for (let p=0; p<attributes.length; p++){ 
-            if (nft['metadata']['attributes'][p]['trait_type'] === "Loc"){
-                var a:string = nft['metadata']['attributes'][p]['value'];
-                var area = OpenLocationCode.decode(a);
-                var loc = { lat: area.latitudeCenter, lng: area.longitudeCenter };
-                setLocation(loc);
-                setDisplay(true);
-            }
-          }
+    //       var c = nft['metadata']['centerpoint'];
+    //       var carea = OpenLocationCode.decode(c);
+    //       var centerl = { lat: carea.latitudeCenter, lng: carea.longitudeCenter };
+    //       setCenter(centerl);
+    //       var attributes = Object.keys(nft['metadata']['attributes']);
+    //         for (let p=0; p<attributes.length; p++){ 
+    //         if (nft['metadata']['attributes'][p]['trait_type'] === "Loc"){
+    //             var a:string = nft['metadata']['attributes'][p]['value'];
+    //             var area = OpenLocationCode.decode(a);
+    //             var loc = { lat: area.latitudeCenter, lng: area.longitudeCenter };
+    //             setLocation(loc);
+    //             setDisplay(true);
+    //         }
+    //       }
     
-        }
+    //     }
 
-        //content string for marker window
-        if (NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
-          var presanitizeString:string =
-              '<div id="content" class="color-black">' +
-              '<div id="siteNotice" class="color-black">' +
-              "</div>" +
-              '<h1 id="firstHeading" class="firstHeading">Warp Crystal</h1>' +
-              '<div id="bodyContent" class="color-black">' +
-              "<p><b>Congratulations</b> 🎉, you found this Warp Crystal in the minting maze!</p>" +
-              "Location based NFT features will be coming soon to Market gm ☕️" +
-              "</div>" +
-              "</div>";
-              var contentString = DOMPurify.sanitize(presanitizeString);
-          } else if (nft && nft['metadata'] && nft['metadata']['contentstring']){
-              const presanitizeString = new DOMParser().parseFromString(nft['metadata']['contentstring'], "text/html").all[0].textContent!;
-              var contentString = DOMPurify.sanitize(presanitizeString);
-              setContent(contentString);
+    //     //content string for marker window
+    //     if (NFT_COLLECTION_ADDRESS === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+    //       var presanitizeString:string =
+    //           '<div id="content" class="color-black">' +
+    //           '<div id="siteNotice" class="color-black">' +
+    //           "</div>" +
+    //           '<h1 id="firstHeading" class="firstHeading">Warp Crystal</h1>' +
+    //           '<div id="bodyContent" class="color-black">' +
+    //           "<p><b>Congratulations</b> 🎉, you found this Warp Crystal in the minting maze!</p>" +
+    //           "Location based NFT features will be coming soon to Market gm ☕️" +
+    //           "</div>" +
+    //           "</div>";
+    //           var contentString = DOMPurify.sanitize(presanitizeString);
+    //       } else if (nft && nft['metadata'] && nft['metadata']['contentstring']){
+    //           const presanitizeString = new DOMParser().parseFromString(nft['metadata']['contentstring'], "text/html").all[0].textContent!;
+    //           var contentString = DOMPurify.sanitize(presanitizeString);
+    //           setContent(contentString);
              
-          }
-    },[nft, NFT_COLLECTION_ADDRESS]);
+    //       }
+    // },[nft, NFT_COLLECTION_ADDRESS]);
 
   async function createBidOrOffer() {
     let txResult;
@@ -276,22 +275,80 @@ export default function TokenPage() {
   }
 
 
-  //Initialize the loctok
-  const { isLoaded } = useJsApiLoader({
+   
+   //Initialize the loctok
+   //@ts-ignore
+   const { isLoaded } = useJsApiLoader({
     id: 'loctok',
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API as string
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_API as string,
   });
 
+  //@ts-ignore
+  const mapRef = useRef<google.maps.Map<Element> | null>(null);
 
-
-  const onLoad = (map: google.maps.Map): void => {
+  //@ts-ignore
+  const onLoad = (map: google.maps.Map<Element>): void => {
     mapRef.current = map;
-    
+    // The location of loctok NFT
+    if(nft && nft.contract?.address === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+      var centerl = { lat: 40.783, lng: -73.971 };
+      setCenter(centerl);
+
+      var attributes = Object.keys(nft.metadata?.attributes);
+        for (let p=0; p<attributes.length; p++){ 
+            if (nft.metadata?.attributes[p].trait_type === "Loc" && nft.contract.address === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+                var a:any = "87G8"+nft.metadata.attributes[p].value;
+                var area:any = OpenLocationCode.decode(a);
+                var loc:any = { lat: area.latitudeCenter, lng: area.longitudeCenter };
+                setLocation(loc);
+               
+            }
+        }
+    } else if(nft) {
+
+      var c:any = nft.metadata?.centerpoint;
+      var carea = OpenLocationCode.decode(c);
+      var centerl = { lat: carea.latitudeCenter, lng: carea.longitudeCenter };
+      setCenter(centerl);
+      var attributes = Object.keys(nft.metadata?.attributes);
+        for (let p=0; p<attributes.length; p++){ 
+        if (nft.metadata?.attributes[p].trait_type === "Loc"){
+            var a:any = nft.metadata.attributes[p].value;
+            var area:any = OpenLocationCode.decode(a);
+            var loc:any = { lat: area.latitudeCenter, lng: area.longitudeCenter };
+            setLocation(loc);
+            
+        }
+      }
+ 
+    }
+
+    //content string for marker window
+    //@ts-ignore
+    if (nft.contract?.address === '0xb6c29b68fecedbf005743c3eaf5139328b651deb'){
+      var presanitizeString =
+          '<div id="content" class="color-black">' +
+          '<div id="siteNotice" class="color-black">' +
+          "</div>" +
+          '<h1 id="firstHeading" class="firstHeading">Warp Crystal</h1>' +
+          '<div id="bodyContent" class="color-black">' +
+          "<p><b>Congratulations</b> 🎉, you found this Warp Crystal in the minting maze!</p>" +
+          "Location based NFT features will be coming soon to Market gm ☕️" +
+          "</div>" +
+          "</div>";
+          var contentString:string = DOMPurify.sanitize(presanitizeString);
+      } else if (nft && nft.metadata?.contentstring){
+          var presanitizeString:string = new DOMParser().parseFromString(nft.metadata?.contentstring, "text/html").all[0].textContent!;
+          var contentString:string = DOMPurify.sanitize(presanitizeString);
+          setContent(contentString);
+      }
   };
 
+  //@ts-ignore
   const onUnmount = (): void => {
     mapRef.current = null;
   }
+
 
 
   return (
@@ -299,7 +356,7 @@ export default function TokenPage() {
       <Toaster position="bottom-center" reverseOrder={false} />
       <Container maxWidth="lg">
         <Navbar/>
-        {display && 
+        {nft?.metadata?.centerpoint && 
             <GoogleMap
               mapContainerStyle={mapStyle}
               center={center}
