@@ -2,6 +2,7 @@ import styles from "./CollectionInfo.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import FontAwesomeIcon from '@fortawesome/free-solid-svg-icons';
+import { MediaRenderer } from "@thirdweb-dev/react";
 
 type Props = {
   Nfts: Array<any>;
@@ -12,12 +13,8 @@ export const CollectionInfo = ({Nfts} : Props) => {
       return(  
         <>
             {(NFTs[0]?.contractMetadata.openSea.imageUrl) ?
-            <Image className={styles.collectionInfoImg} src={`${NFTs[0]?.contractMetadata.openSea.imageUrl}`} alt="" width={200} height={200}/>
-            : (NFTs[0]?.metadata.filetype != "mp4" && NFTs[0]?.metadata.filetype === null) ?
-            <Image className={styles.collectionInfoImg} src={`${NFTs[0]?.media[0]?.gateway}`} alt="" width={200} height={200}/>
-            : (NFTs[0]?.metadata.filetype === "mp4" || NFTs[0]?.metadata.filetype === "webm" || NFTs[0]?.metadata.filetype === "ogg") ?
-            <video className={styles.collectionInfoImg} controls><source src={`${NFTs[0]?.media[0].gateway}`}/></video>
-            : <Image className={styles.collectionInfoImg} src={NFTs[0]?.media[0].gateway} alt="" width={200} height={200}/>
+            <MediaRenderer src={`${NFTs[0]?.contractMetadata.openSea.imageUrl}`} className={styles.collectionInfoImg}/>
+            : <MediaRenderer src={`${NFTs[0]?.media[0]?.gateway}`} className={styles.collectionInfoImg}/>
             }
             <div className={styles.collectionInfoIcons}>
                 {(NFTs[0]?.contract.address === '0x8fba3ebe77d3371406a77eeaf40c89c1ed55364a' 
