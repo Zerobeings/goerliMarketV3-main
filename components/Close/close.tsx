@@ -39,10 +39,10 @@ export const Close = () => {
       var myWins:any = [];
 
       try {
-        const allListings_offeror = await marketplace?.englishAuctions.getAll({offeror: address}); 
-        const validListings_offeror = await marketplace?.englishAuctions.getAllValid({offeror: address}); 
-        const allListings_seller = await marketplace?.englishAuctions.getAll({seller: address}); 
-        const validListings_seller = await marketplace?.englishAuctions.getAllValid({seller: address}); 
+        const allListings_offeror = await marketplace?.englishAuctions.getAll(); 
+        const validListings_offeror = await marketplace?.englishAuctions.getAllValid(); 
+        const allListings_seller = await marketplace?.englishAuctions.getAll(); 
+        const validListings_seller = await marketplace?.englishAuctions.getAllValid(); 
 
         if(allListings_offeror && validListings_offeror && allListings_seller && validListings_seller) {
       
