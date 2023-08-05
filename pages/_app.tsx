@@ -3,7 +3,6 @@ import {
   ThirdwebProvider,
   localWallet,
   metamaskWallet,
-  smartWallet,
   coinbaseWallet,
   walletConnect,
   safeWallet,
@@ -20,13 +19,10 @@ import Head from 'next/head';
 function MyApp({ Component, pageProps }: AppProps) {
   const chainId = useChainId();
   return (
-    <ThirdwebProvider activeChain={NETWORK}
+    <ThirdwebProvider
+      activeChain={NETWORK}
+      clientId= {process.env.NEXT_PUBLIC_CLIENT_ID as string}
       supportedWallets={[
-        smartWallet({
-          factoryAddress: process.env.NEXT_PUBLIC_TWFactoryAddress as string,
-          thirdwebApiKey: process.env.NEXT_PUBLIC_TWApiKey as string,
-          gasless: false,
-        }),
         metamaskWallet(), 
         localWallet({ persist: true }), 
         coinbaseWallet(), 
