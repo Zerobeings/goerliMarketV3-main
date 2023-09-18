@@ -17,7 +17,7 @@ import Head from 'next/head';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const chainId = useChainId();
+
   return (
     <ThirdwebProvider
       activeChain={NETWORK}
