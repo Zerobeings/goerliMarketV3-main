@@ -1,5 +1,5 @@
 
-# ⚠️🚧 This Repo is Under Construction 🚧⚠️ #
+# This Repo has been Archived as Goerli is not longer support #
 
 # NFT Marketplace V3
 
